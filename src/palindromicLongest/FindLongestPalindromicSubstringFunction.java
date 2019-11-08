@@ -7,6 +7,7 @@ public class FindLongestPalindromicSubstringFunction {
     public String longestPalindrome(String s) {
         int slength = s.length();
         
+        // If there is only one element, edge case
         if(slength < 2){
         	return s;
         }
