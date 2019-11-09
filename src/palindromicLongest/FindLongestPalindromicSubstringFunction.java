@@ -14,6 +14,7 @@ public class FindLongestPalindromicSubstringFunction {
         
         for(int i = 0; i < slength - 1; i++){
         	// This will stop the loop if the a letter is repeated for more than 6 times
+        	// Unique
         	if(slength - 1 < maxLen / 2){
         		break;
         	}
