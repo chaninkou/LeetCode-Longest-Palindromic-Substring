@@ -8,7 +8,7 @@ public class FindLongestPalindromicSubstringFunction {
         int slength = s.length();
         
         // If there is only one element, edge case
-        if(slength < 2){
+        if(slength <= 1){
         	return s;
         }
         
@@ -43,6 +43,7 @@ public class FindLongestPalindromicSubstringFunction {
     	// Always minus one to get the correct index since it cannot go over the original string length
     	int maybeMaxLength = moveRight - moveLeft - 1;
     	
+    	// Check if this length is more than our current max value
     	if(maxLen < maybeMaxLength){
     		// Always plus one since moveLeft might be less than zero
     		start = moveLeft + 1;
