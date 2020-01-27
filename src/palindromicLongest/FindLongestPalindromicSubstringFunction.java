@@ -35,8 +35,10 @@ public class FindLongestPalindromicSubstringFunction {
     	// Right can not be greater than the actual string length, cause it is not possible
     	// The left and right value have to equal or else its not a palindrome
     	while(moveLeft >= 0 && moveRight < s.length() && s.charAt(moveLeft) == s.charAt(moveRight)){
+    		// Move the left pointer to left now
     		moveLeft--;
     		
+    		// Move the right pointer to right now
     		moveRight++;
     	}
     	
