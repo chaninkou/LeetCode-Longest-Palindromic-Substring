@@ -1,10 +1,71 @@
 package palindromicLongest;
 
 public class FindLongestPalindromicSubstringFunction {
+    public String longestPalindrome(String s) {
+    	if(s == null || s.length() <= 1){
+    		return "";
+    	}
+    	
+    	// The exact start index
+    	int start = 0;
+    	
+    	// The exact end index
+    	int end = 0;
+    	
+    	// Go through each characters
+    	for(int i = 0; i < s.length(); i++){
+    		// example: aba
+    		int odd = expandFromMiddle(s, i, i);
+    		
+    		// example: abba
+    		int even = expandFromMiddle(s, i, i + 1);
+    		
+    		// Get the max of it
+    		int currentMaxLength = Math.max(odd, even);
+    		
+    		// If current palindrome is longer than our previous max
+    		if(currentMaxLength > end - start){
+    			// Update the start and end index
+    			
+    			// Divide the currentmaxlength by 2 and minus that from i to get the starting index
+    			start = i - (currentMaxLength - 1)/2;
+    			
+    			// Add the currentmaxlength that got divided by 2
+    			end = i + currentMaxLength/2;
+    		}
+    	}
+    	
+    	
+    	// end + 1 because the end of substring doesn't include that index
+    	return s.substring(start, end + 1);
+    }
+    
+    
+    private int expandFromMiddle(String s, int left, int right){
+    	// Make sure we don't overflow
+    	if(s == null || left > right){
+    		return 0;
+    	}
+    	
+    	// When left and right is still in between the string length, and they equal to each other
+    	while(left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+    		// Update the 2 pointers
+    		left--;
+    		right++;
+    	}
+    	
+    	// Example: aba
+    	// right = 3
+    	// left = -1
+    	// 3 - -1 - 1 = 3
+    	return right - left - 1;
+    }	
+    
+    
     private int start;
     private int maxLen;
     
-    public String longestPalindrome(String s) {
+    public String longestPalindrome1(String s) {
         int slength = s.length();
         
         // If there is only one element, edge case
@@ -52,4 +113,5 @@ public class FindLongestPalindromicSubstringFunction {
     		maxLen = maybeMaxLength;
     	}
     }	
+    
 }
