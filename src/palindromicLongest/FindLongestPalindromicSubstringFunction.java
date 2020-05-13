@@ -1,6 +1,7 @@
 package palindromicLongest;
 
 public class FindLongestPalindromicSubstringFunction {
+	// Without using a global variables 
     public String longestPalindrome(String s) {
     	if(s == null || s.length() <= 1){
     		return "";
@@ -25,8 +26,6 @@ public class FindLongestPalindromicSubstringFunction {
     		
     		// If current palindrome is longer than our previous max
     		if(currentMaxLength > end - start){
-    			// Update the start and end index
-    			
     			// Divide the currentmaxlength by 2 and minus that from i to get the starting index
     			start = i - (currentMaxLength - 1)/2;
     			
