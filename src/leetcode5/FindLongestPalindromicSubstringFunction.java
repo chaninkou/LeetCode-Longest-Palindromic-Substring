@@ -1,4 +1,4 @@
-package palindromicLongest;
+package leetcode5;
 
 public class FindLongestPalindromicSubstringFunction {
 	// Without using a global variables 
