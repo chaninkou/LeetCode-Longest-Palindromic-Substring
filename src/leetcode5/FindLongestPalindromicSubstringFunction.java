@@ -7,10 +7,8 @@ public class FindLongestPalindromicSubstringFunction {
     		return "";
     	}
     	
-    	// The exact start index
     	int start = 0;
     	
-    	// The exact end index
     	int end = 0;
     	
     	// Go through each characters
